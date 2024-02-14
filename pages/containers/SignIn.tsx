@@ -22,6 +22,7 @@ function SignIn() {
     'openid',
     'profile',
     'user:profile:read',
+    'company:profile:read',
     'email',
     'phone',
     'bank:transactions:read',
@@ -38,7 +39,7 @@ function SignIn() {
   };
 
   const handleLogin = () => {
-    router.push(`/login?${qs.stringify({ scope: selectedValues.join(' ') })}`);
+    router.push(`/login?${qs.stringify({ requestedScope: selectedValues.join(' ') })}`);
   };
 
   return (

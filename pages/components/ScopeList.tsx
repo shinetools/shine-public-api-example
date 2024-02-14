@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function ScopeList({ values, selectedValues, onSelectedValuesChange }) {
   const handleCheckboxChange = (value: string) => {
@@ -27,11 +26,5 @@ function ScopeList({ values, selectedValues, onSelectedValuesChange }) {
     </div>
   );
 }
-
-ScopeList.propTypes = {
-  values: PropTypes.arrayOf(PropTypes.string).isRequired,
-  selectedValues: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onSelectedValuesChange: PropTypes.func.isRequired,
-};
 
 export default ScopeList;

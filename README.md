@@ -7,6 +7,8 @@ Not all routes are included, there is both a `GET` and `POST` that should be eno
 
 See the full Shine Connect documentation [here](https://developers.shine.fr/v3.0/reference).
 
+## Architecture of the project
+
 ## Install
 
 ```
