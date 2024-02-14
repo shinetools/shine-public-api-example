@@ -15,6 +15,10 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
+const H2 = styled.h2`
+  margin-bottom: 20px;
+`;
+
 function SignIn() {
   const router = useRouter();
 
@@ -47,7 +51,7 @@ function SignIn() {
       <Head>
         <title>Shine Connect</title>
       </Head>
-      <h2 style={{ marginBottom: '20px' }}>Select scope that you want to access:</h2>
+      <H2>Select scope that you want to access:</H2>
       <ScopeList values={values} selectedValues={selectedValues} onSelectedValuesChange={handleSelectedValuesChange} />
       <Button text="Login with Shine" onClick={handleLogin} />
     </Container>
