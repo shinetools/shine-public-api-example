@@ -16,3 +16,6 @@ export type FeatureParams = {
 };
 
 export const stringifyResponse = (data: unknown) => JSON.stringify(data, null, 2);
+export default function Home() {
+  return <div />;
+}
