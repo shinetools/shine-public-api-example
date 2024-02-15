@@ -12,6 +12,7 @@ import GetTransactions from '../features/GetTransactions';
 import GetTransactionById from '../features/GetTransactionById';
 import GetReceiptForTransaction from '../features/GetReceiptForTransaction';
 import GetReceiptById from '../features/GetReceiptById';
+import GetReceiptForCompany from '../features/GetReceiptForCompany';
 
 const Container = styled.div`
   display: flex;
@@ -73,6 +74,11 @@ function Authenticated({ authenticatedData }: { authenticatedData: Authenticated
           authenticatedData={authenticatedData}
         />
         <GetReceiptForTransaction
+          setOperationOutput={setOperationOutput}
+          setError={setError}
+          authenticatedData={authenticatedData}
+        />
+        <GetReceiptForCompany
           setOperationOutput={setOperationOutput}
           setError={setError}
           authenticatedData={authenticatedData}
