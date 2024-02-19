@@ -13,6 +13,7 @@ import getTransactions from './routes/transactions';
 import getTransactionById from './routes/transactionById';
 import getReceiptForTransaction from './routes/receiptForTransaction';
 import getReceiptById from './routes/receiptById';
+import getReceiptForCompany from './routes/receiptForCompany';
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -31,6 +32,7 @@ app.prepare().then(() => {
   server.get('/transactions', getTransactions);
   server.get('/transaction-by-id', getTransactionById);
   server.get('/receipt-for-transaction', getReceiptForTransaction);
+  server.get('/receipt-for-company', getReceiptForCompany);
   server.get('/receipt-by-id', getReceiptById);
 
   server.get('*', (req, res) => handle(req, res));

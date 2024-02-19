@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
 import { doRequest } from './doRequest';
 
-const getCompanyProfile = async (req: Request, res: Response) => {
+const getReceiptForCompany = async (req: Request, res: Response) => {
   const { access_token, companyProfileId } = req.query;
 
   try {
     const data = await doRequest({
       method: 'GET',
-      path: `/companies/profiles/${companyProfileId}`,
+      path: `/receipts/query?companyProfileId=${companyProfileId}`,
       authorization: access_token as string,
     });
     res.status(200).send(data);
@@ -19,4 +19,4 @@ const getCompanyProfile = async (req: Request, res: Response) => {
   }
 };
 
-export default getCompanyProfile;
+export default getReceiptForCompany;
