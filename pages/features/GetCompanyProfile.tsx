@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import Button from '../components/Button';
 import axios, { AxiosError } from 'axios';
-import { FeatureParams, stringifyResponse } from '../utils';
+import { FeatureParams, SContainer, stringifyResponse } from '../utils';
 
 function GetCompanyProfile({ authenticatedData, setOperationOutput, setError }: FeatureParams) {
   const getCompanyProfile = useCallback(() => {
@@ -17,7 +17,11 @@ function GetCompanyProfile({ authenticatedData, setOperationOutput, setError }: 
       .catch((err: AxiosError) => setError(stringifyResponse({ status: err.response.status, text: err.message })));
   }, [setError, setOperationOutput, authenticatedData]);
 
-  return <Button key="companyProfile" text="Get company profile" onClick={getCompanyProfile} />;
+  return (
+    <SContainer>
+      <Button key="companyProfile" text="Get company profile" onClick={getCompanyProfile} />
+    </SContainer>
+  );
 }
 
 export default GetCompanyProfile;

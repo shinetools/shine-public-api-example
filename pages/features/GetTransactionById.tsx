@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import Button from '../components/Button';
 import axios, { AxiosError } from 'axios';
-import { FeatureParams, stringifyResponse } from '../utils';
+import { FeatureParams, SContainer, SInput, stringifyResponse } from '../utils';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -43,8 +43,8 @@ function GetTransactionById({ authenticatedData, setOperationOutput, setError }:
   }, [setError, setOperationOutput, authenticatedData, transactionId]);
 
   return (
-    <Container>
-      <Input
+    <SContainer>
+      <SInput
         value={transactionId}
         onChange={(e) => setTransactionId(e.target.value)}
         type="text"
@@ -52,7 +52,7 @@ function GetTransactionById({ authenticatedData, setOperationOutput, setError }:
         size={40}
       />
       <Button key="transactionById" text="Get transaction by ID" onClick={getTransactionById} />
-    </Container>
+    </SContainer>
   );
 }
 

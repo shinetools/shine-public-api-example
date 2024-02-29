@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import Button from '../components/Button';
 import axios, { AxiosError } from 'axios';
-import { FeatureParams, stringifyResponse } from '../utils';
+import { FeatureParams, SContainer, stringifyResponse } from '../utils';
 
 function GetUserProfile({ authenticatedData, setOperationOutput, setError }: FeatureParams) {
   const getUserProfile = useCallback(() => {
@@ -17,7 +17,11 @@ function GetUserProfile({ authenticatedData, setOperationOutput, setError }: Fea
       .catch((err: AxiosError) => setError(stringifyResponse(err.response.data)));
   }, [setError, setOperationOutput, authenticatedData]);
 
-  return <Button key="userProfile" text="Get user profile" onClick={getUserProfile} />;
+  return (
+    <SContainer>
+      <Button key="userProfile" text="Get user profile" onClick={getUserProfile} />
+    </SContainer>
+  );
 }
 
 export default GetUserProfile;
