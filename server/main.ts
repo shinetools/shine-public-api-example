@@ -14,6 +14,7 @@ import getTransactionById from './routes/transactionById';
 import getReceiptForTransaction from './routes/receiptForTransaction';
 import getReceiptById from './routes/receiptById';
 import getReceiptForCompany from './routes/receiptForCompany';
+import getInvoicesForCompany from './routes/invoicesForCompany';
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -34,6 +35,7 @@ app.prepare().then(() => {
   server.get('/receipt-for-transaction', getReceiptForTransaction);
   server.get('/receipt-for-company', getReceiptForCompany);
   server.get('/receipt-by-id', getReceiptById);
+  server.get('/invoices-for-company', getInvoicesForCompany);
 
   server.get('*', (req, res) => handle(req, res));
   server.listen(port, () => console.info(`Server listening on port ${port}`));

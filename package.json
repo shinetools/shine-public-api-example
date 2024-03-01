@@ -4,7 +4,7 @@
     "local": "nodemon",
     "dev": "API_ENV=staging nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
-    "start": "API_ENV=staging NODE_ENV=production next start"
+    "start": "API_ENV=staging node dist/main.js"
   },
   "dependencies": {
     "axios": "^1.6.7",
@@ -13,6 +13,7 @@
     "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-pro-sidebar": "^1.1.0",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
