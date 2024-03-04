@@ -1,13 +1,10 @@
-# Shine Connect API
+# Shine Public API
 
 [![Code Owners](https://img.shields.io/badge/owner-platform-blueviolet?style=flat&logo=github)](./.github/CODEOWNERS)
 
-This projects aims at demonstrating how to use Shine Connect API.  
-Not all routes are included, there is both a `GET` and `POST` that should be enough to get you started.
+This projects aims at demonstrating how to use Shine Public API.
 
-See the full Shine Connect documentation [here](https://developers.shine.fr/v3.0/reference).
-
-## Architecture of the project
+See the full Shine Connect documentation [here](https://developers.shine.fr/v3.1/reference).
 
 ## Install
 
