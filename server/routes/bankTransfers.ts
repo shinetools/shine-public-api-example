@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
 import { doRequest } from './doRequest';
 
-const getInvoicesForCompany = async (req: Request, res: Response) => {
-  const { access_token, companyProfileId } = req.query;
+const getBankTransfers = async (req: Request, res: Response) => {
+  const { access_token, bankAccountId } = req.query;
 
   try {
     const data = await doRequest({
       method: 'GET',
-      path: `/invoices/query?companyProfileId=${companyProfileId}&first=10`,
+      path: `/bank/transfers/query?bankAccountId=${bankAccountId}&first=10`,
       authorization: access_token as string,
     });
     res.status(200).send(data);
@@ -19,4 +19,4 @@ const getInvoicesForCompany = async (req: Request, res: Response) => {
   }
 };
 
-export default getInvoicesForCompany;
+export default getBankTransfers;

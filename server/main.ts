@@ -15,6 +15,10 @@ import getReceiptForTransaction from './routes/receiptForTransaction';
 import getReceiptById from './routes/receiptById';
 import getReceiptForCompany from './routes/receiptForCompany';
 import getInvoicesForCompany from './routes/invoicesForCompany';
+import getBankTransfers from './routes/bankTransfers';
+import getBankTransferById from './routes/bankTransferById';
+import getInvoiceById from './routes/invoiceById';
+import getInvoiceMapping from './routes/invoiceMapping';
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -30,12 +34,16 @@ app.prepare().then(() => {
   server.get('/user-profile', getUserProfile);
   server.get('/company-profile', getCompanyProfile);
   server.get('/bank-accounts', getBankAccounts);
+  server.get('/bank-transfers', getBankTransfers);
+  server.get('/bank-transfer-by-id', getBankTransferById);
   server.get('/transactions', getTransactions);
   server.get('/transaction-by-id', getTransactionById);
   server.get('/receipt-for-transaction', getReceiptForTransaction);
   server.get('/receipt-for-company', getReceiptForCompany);
   server.get('/receipt-by-id', getReceiptById);
   server.get('/invoices-for-company', getInvoicesForCompany);
+  server.get('/invoice-by-id', getInvoiceById);
+  server.get('/invoice-mappings', getInvoiceMapping);
 
   server.get('*', (req, res) => handle(req, res));
   server.listen(port, () => console.info(`Server listening on port ${port}`));
