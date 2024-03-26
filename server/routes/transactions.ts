@@ -7,7 +7,7 @@ const getTransactions = async (req: Request, res: Response) => {
   try {
     const data = await doRequest({
       method: 'GET',
-      path: `/transactions/query?bankAccountId=${bankAccountId}`,
+      path: `/transactions/query?bankAccountId=${bankAccountId}&first=10`,
       authorization: access_token as string,
     });
     res.status(200).send(data);

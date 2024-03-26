@@ -15,6 +15,10 @@ import GetReceiptById from '../features/GetReceiptById';
 import GetReceiptForCompany from '../features/GetReceiptForCompany';
 import { Sidebar, Menu } from 'react-pro-sidebar';
 import GetInvoicesForCompany from '../features/GetInvoicesForCompany';
+import GetBankTransfers from '../features/GetBankTransfers';
+import GetBankTransferById from '../features/GetBankTransferById';
+import GetInvoiceById from '../features/GetInvoiceById';
+import GetInvoiceMappings from '../features/GetInvoiceMappings';
 
 const Container = styled.div`
   display: flex;
@@ -23,20 +27,17 @@ const Container = styled.div`
 `;
 
 const ContainerOutput = styled.div`
-  display: flex;
   flex-direction: row;
-  align-items: center;
-  overflow: scroll;
   height: 900px;
 `;
 
 const StyledSidebarHeader = styled.div`
-  height: 64px;
-  min-height: 64px;
+  height: 32px;
+  min-height: 32px;
   display: flex;
   align-items: center;
   padding: 0 20px;
-  font-size: 1.5em;
+  font-size: 1.4em;
 
   > div {
     width: 100%;
@@ -70,6 +71,7 @@ function Authenticated({ authenticatedData }: { authenticatedData: Authenticated
             authenticatedData={authenticatedData}
           />
         </Menu>
+        <StyledSidebarHeader>Bank information</StyledSidebarHeader>
         <Menu>
           <GetBankAccounts
             setOperationOutput={setOperationOutput}
@@ -77,6 +79,20 @@ function Authenticated({ authenticatedData }: { authenticatedData: Authenticated
             authenticatedData={authenticatedData}
           />
         </Menu>
+
+        <StyledSidebarHeader>Transfers </StyledSidebarHeader>
+        <GetBankTransfers
+          setOperationOutput={setOperationOutput}
+          setError={setError}
+          authenticatedData={authenticatedData}
+        />
+
+        <GetBankTransferById
+          setOperationOutput={setOperationOutput}
+          setError={setError}
+          authenticatedData={authenticatedData}
+        />
+
         <StyledSidebarHeader>Transactions </StyledSidebarHeader>
 
         <Menu>
@@ -119,6 +135,22 @@ function Authenticated({ authenticatedData }: { authenticatedData: Authenticated
         <StyledSidebarHeader>Invoices </StyledSidebarHeader>
         <Menu>
           <GetInvoicesForCompany
+            setOperationOutput={setOperationOutput}
+            setError={setError}
+            authenticatedData={authenticatedData}
+          />
+        </Menu>
+        <Menu>
+          <GetInvoiceById
+            setOperationOutput={setOperationOutput}
+            setError={setError}
+            authenticatedData={authenticatedData}
+          />
+        </Menu>
+        <StyledSidebarHeader>Transaction enrichment </StyledSidebarHeader>
+
+        <Menu>
+          <GetInvoiceMappings
             setOperationOutput={setOperationOutput}
             setError={setError}
             authenticatedData={authenticatedData}
