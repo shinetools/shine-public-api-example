@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { doRequest } from '../doRequest';
+import { publicApiRequest } from '../publicApiRequest';
 
 const getTransactions = async (req: Request, res: Response) => {
   const { access_token, bankAccountId } = req.query;
 
   try {
-    const data = await doRequest({
+    const data = await publicApiRequest({
       method: 'GET',
       path: `/transactions/query?bankAccountId=${bankAccountId}&first=10`,
       authorization: access_token as string,

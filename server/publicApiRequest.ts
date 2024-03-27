@@ -23,7 +23,7 @@ export const convertObjectToString = (payload: unknown) => {
   }
 };
 
-export const doRequest = async (params: DoRequestParams) => {
+export const publicApiRequest = async (params: DoRequestParams) => {
   const { method, path, authorization, payload } = params;
   const postData = convertObjectToString(payload);
 

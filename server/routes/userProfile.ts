@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { doRequest } from '../doRequest';
+import { publicApiRequest } from '../publicApiRequest';
 
 const getUserProfile = async (req: Request, res: Response) => {
   const { access_token, uid } = req.query;
 
   try {
-    const data = await doRequest({
+    const data = await publicApiRequest({
       method: 'GET',
       path: `/users/profiles/${uid}`,
       authorization: access_token as string,
