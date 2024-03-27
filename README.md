@@ -16,12 +16,13 @@ yarn install
 
 Copy `server/config/config.example.js` to a new `server/config/config.js` and fill the following values
 
-| Variable      | Description                                                                                          |
-| ------------- | ---------------------------------------------------------------------------------------------------- |
-| CLIENT_ID     | Client ID given at the creation                                                                      |
-| CLIENT_SECRET | Secret given at the creation                                                                         |
-| SCOPE         | Scope to be granted, will be presented to the user                                                   |
-| REDIRECT_URI  | Redirect URI once authorization is granted. Make sure it is whitelisted in the client `redirectURIs` |
+| Variable       | Description                                                                                          |
+| -------------- | ---------------------------------------------------------------------------------------------------- |
+| CLIENT_ID      | Client ID given at the creation                                                                      |
+| CLIENT_SECRET  | Secret given at the creation                                                                         |
+| SCOPE          | Scope to be granted, will be presented to the user                                                   |
+| REDIRECT_URI   | Redirect URI once authorization is granted. Make sure it is whitelisted in the client `redirectURIs` |
+| WEBHOOK_SECRET | Secret provided by shine to check webhook signature                                                  |
 
 ## Run
 

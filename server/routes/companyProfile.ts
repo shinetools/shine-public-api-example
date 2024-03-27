@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { doRequest } from './doRequest';
+import { publicApiRequest } from '../publicApiRequest';
 
 const getCompanyProfile = async (req: Request, res: Response) => {
   const { access_token, companyProfileId } = req.query;
 
   try {
-    const data = await doRequest({
+    const data = await publicApiRequest({
       method: 'GET',
       path: `/companies/profiles/${companyProfileId}`,
       authorization: access_token as string,

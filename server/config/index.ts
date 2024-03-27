@@ -6,7 +6,13 @@ const SHINE_AUTHENTICATION_STAGING_URL = 'https://api.staging.shine.fr/v2/authen
 const SHINE_CONNECT_PRODUCTION_HOST = 'connect.api.shine.fr';
 const SHINE_CONNECT_STAGING_HOST = 'https://public.api.staging.shine.fr';
 const SHINE_CONNECT_DEV_HOST = 'http://localhost:10081';
-const { CLIENT_ID: clientId, CLIENT_SECRET: clientSecret, SCOPE: defaultScope, REDIRECT_URI: redirectUri } = config;
+const {
+  CLIENT_ID: clientId,
+  CLIENT_SECRET: clientSecret,
+  SCOPE: defaultScope,
+  REDIRECT_URI: redirectUri,
+  WEBHOOK_SECRET: webhookSecret,
+} = config;
 
 const isStaging = process.env.API_ENV === 'staging';
 const isProd = process.env.API_ENV === 'production';
@@ -21,4 +27,15 @@ const shineApiHost = isLocal
   : isStaging
     ? SHINE_CONNECT_STAGING_HOST
     : SHINE_CONNECT_PRODUCTION_HOST;
-export { shineAuthHost, shineApiHost, redirectUri, port, clientId, clientSecret, defaultScope, dev, isLocal };
+export {
+  shineAuthHost,
+  shineApiHost,
+  redirectUri,
+  port,
+  clientId,
+  clientSecret,
+  defaultScope,
+  dev,
+  isLocal,
+  webhookSecret,
+};

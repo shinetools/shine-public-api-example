@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { shineApiHost, isLocal } from '../config';
+import { shineApiHost, isLocal } from './config';
 
 /**
  * This function is exclusively for the Shine development environment.
@@ -23,7 +23,7 @@ export const convertObjectToString = (payload: unknown) => {
   }
 };
 
-export const doRequest = async (params: DoRequestParams) => {
+export const publicApiRequest = async (params: DoRequestParams) => {
   const { method, path, authorization, payload } = params;
   const postData = convertObjectToString(payload);
 

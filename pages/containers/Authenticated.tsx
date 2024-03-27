@@ -19,6 +19,8 @@ import GetBankTransfers from '../features/GetBankTransfers';
 import GetBankTransferById from '../features/GetBankTransferById';
 import GetInvoiceById from '../features/GetInvoiceById';
 import GetInvoiceMappings from '../features/GetInvoiceMappings';
+import GetWebhooks from '../features/GetWebhooks';
+import RefreshToken from '../features/RefreshToken';
 
 const Container = styled.div`
   display: flex;
@@ -71,6 +73,14 @@ function Authenticated({ authenticatedData }: { authenticatedData: Authenticated
             authenticatedData={authenticatedData}
           />
         </Menu>
+        <Menu>
+          <RefreshToken
+            setOperationOutput={setOperationOutput}
+            setError={setError}
+            authenticatedData={authenticatedData}
+          />
+        </Menu>
+
         <StyledSidebarHeader>Bank information</StyledSidebarHeader>
         <Menu>
           <GetBankAccounts
@@ -147,10 +157,18 @@ function Authenticated({ authenticatedData }: { authenticatedData: Authenticated
             authenticatedData={authenticatedData}
           />
         </Menu>
-        <StyledSidebarHeader>Transaction enrichment </StyledSidebarHeader>
+        <StyledSidebarHeader>Others </StyledSidebarHeader>
 
         <Menu>
           <GetInvoiceMappings
+            setOperationOutput={setOperationOutput}
+            setError={setError}
+            authenticatedData={authenticatedData}
+          />
+        </Menu>
+
+        <Menu>
+          <GetWebhooks
             setOperationOutput={setOperationOutput}
             setError={setError}
             authenticatedData={authenticatedData}

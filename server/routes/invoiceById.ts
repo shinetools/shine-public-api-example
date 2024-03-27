@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { doRequest } from './doRequest';
+import { publicApiRequest } from '../publicApiRequest';
 
 const getInvoiceById = async (req: Request, res: Response) => {
   const { access_token, invoiceId } = req.query;
 
   try {
-    const data = await doRequest({
+    const data = await publicApiRequest({
       method: 'GET',
       path: `/invoices/${invoiceId}`,
       authorization: access_token as string,
