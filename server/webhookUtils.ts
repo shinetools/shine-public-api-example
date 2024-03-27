@@ -25,8 +25,6 @@ export const verifyWebHookSignature = (req: Request): boolean => {
   const expectedSignature = hmac.digest('hex');
 
   // 4. Compare the signature in the header with the expected signature.
-  console.log('Expected signature:', expectedSignature);
-  console.log('Received signature:', signature);
   return expectedSignature === signature;
 };
 
