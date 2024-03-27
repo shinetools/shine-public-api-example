@@ -8,13 +8,13 @@ const webhookHandler = async (req: Request, res: Response, next: NextFunction) =
     return res.status(400).send('Invalid signature');
   }
 
-  const { companyProfileId } = req.body.data;
+  const { companyProfileId } = req.body.entity;
   if (!companyProfileId) {
     return res.status(400).send('Invalid data companyProfileId missing');
   }
 
   const webhooks = readFromDb(companyProfileId);
-  webhooks.push(req.body.data);
+  webhooks.push(req.body.entity);
   writeToDb(companyProfileId, webhooks);
   res.status(200).send('Webhook received');
 };

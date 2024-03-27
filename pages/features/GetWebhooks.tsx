@@ -7,7 +7,9 @@ function GetWebhooks({ authenticatedData, setOperationOutput, setError }: Featur
   const getWebhooks = useCallback(() => {
     setError(null);
     axios
-      .get('/webhook')
+      .get('/webhook', {
+        params: { companyProfileId: authenticatedData.companyProfileId },
+      })
       .then((result) => setOperationOutput(stringifyResponse(result.data)))
       .catch((err: AxiosError) => setError(stringifyResponse({ status: err.response.status, text: err.message })));
   }, [setError, setOperationOutput, authenticatedData]);
