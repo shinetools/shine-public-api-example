@@ -1,19 +1,18 @@
 import { Request, Response } from 'express';
-import { existsSync, readFileSync, writeFileSync } from 'fs';
+import { readFromDb } from '../webhookUtils';
 
-export const readFromDb = () => {
-  if (!existsSync('db.json')) {
-    writeFileSync('db.json', '[]');
-    return [];
+const webhook = async (req: Request, res: Response) => {
+  const { companyProfileId } = req.query;
+
+  try {
+    const webhooks = readFromDb(companyProfileId as string);
+    res.status(200).send(webhooks);
+  } catch (error) {
+    res.status(error.status).send({
+      status: error.status,
+      message: error.body.message,
+    });
   }
-
-  const db = readFileSync('db.json').toString();
-  return JSON.parse(db);
-};
-
-const webhook = async (_: Request, res: Response) => {
-  const webhooks = readFromDb();
-  res.status(200).send(webhooks);
 };
 
 export default webhook;

@@ -19,9 +19,10 @@ import getBankTransfers from './routes/bankTransfers';
 import getBankTransferById from './routes/bankTransferById';
 import getInvoiceById from './routes/invoiceById';
 import getInvoiceMapping from './routes/invoiceMapping';
-import webhookHandler, { rawBodySaver } from './routes/webhookHandler';
+import webhookHandler from './routes/webhookHandler';
 import webhook from './routes/webhook';
 import refreshToken from './routes/refreshToken';
+import { rawBodySaver } from './webhookUtils';
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
