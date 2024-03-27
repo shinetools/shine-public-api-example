@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { doRequest } from './doRequest';
+import { doRequest } from '../doRequest';
 
 const getInvoiceById = async (req: Request, res: Response) => {
   const { access_token, invoiceId } = req.query;

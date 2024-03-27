@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { doRequest } from './doRequest';
+import { doRequest } from '../doRequest';
 
 const getTransactionById = async (req: Request, res: Response) => {
   const { access_token, transactionId } = req.query;
